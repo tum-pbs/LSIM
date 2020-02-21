@@ -1,0 +1,11 @@
+imageio>=2.4.1
+ipython>=6.5.0
+matplotlib>=3.0.0
+numpy>=1.15.2
+opencv>=3.4.2
+pillow=6.2.1
+python>=3.5.6
+pytorch>=1.1.0
+scikit-image>=0.14.0
+scipy>=1.1.0
+torchvision>=0.3.0
