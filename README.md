@@ -46,7 +46,17 @@ If you encounter problems with installing, training, or evaluating the metric, l
 -----------------------------------------------------------------------------------------------------
 
 ## Data Download
-**[Final storage of the data sets is still in progress, but a download link will be coming soon]**
+The data (3.9 GB .zip file) can be downloaded via any web browser, `ftp`, or `rsync` here: [https://doi.org/10.14459/2020mp1552055](https://doi.org/10.14459/2020mp1552055). Alternatively, a direct command line download is possible with:
+```
+wget "https://dataserv.ub.tum.de/s/m1552055/download?files=LSIM_2D_Data.zip" -O LSIM_2D_Data.zip
+```
+It is recommended to check the archive for corruption, by comparing the SHA512 hash of the downloaded data with the content of the checksums file provided by the data server. If the hashes don't match, restart the download or try a different download method.
+```
+sha512sum LSIM_2D_Data.zip
+wget "https://dataserv.ub.tum.de/s/m1552055/download?files=checksums.sha512" -O checksums.sha512
+```
+Once the download is complete, unzip the file with `unzip LSIM_2D_Data.zip`. Basic information about the individual data sets can be found in the included `README_DATA.txt` file, and a more detailed description is provided in paper. 
+
 
 ## Metric Comparison
 To compare the performance of different metrics on the data, use the metric evaluation in `eval_metrics.py`:
@@ -67,5 +77,17 @@ Backpropagation, e.g., in the context of training a GAN is straightforward by in
 
 -----------------------------------------------------------------------------------------------------
 
-## Acknowledgments
+## Citation
+If you are using the *LSiM* metric or the data provided here, please use the following citation.
+```
+@inproceedings{kohl2020_lsim,
+ author = {Kohl, Georg and Um, Kiwon and Thuerey, Nils},
+ title = {Learning Similarity Metrics for Numerical Simulations},
+ booktitle = {Proceedings of Machine Learning and Systems 2020},
+ pages = {2791--2801},
+ year = {2020}
+}
+```
+
+## Acknowledgements
 This repository also contains the image-based LPIPS metric from the [perceptual similarity](https://github.com/richzhang/PerceptualSimilarity) repository for comparison.
