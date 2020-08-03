@@ -56,7 +56,7 @@ print("SSIM   --  PlumeA: %0.4f  PlumeB: %0.4f" % (distA_SSIM, distB_SSIM))
 print("LPIPS  --  PlumeA: %0.4f  PlumeB: %0.4f" % (distA_LPIPS, distB_LPIPS))
 
 # distance results should look like this (on CPU and GPU):
-#LSiM   --  PlumeA: 0.4108  PlumeB: 0.4739
+#LSiM   --  PlumeA: 0.3791  PlumeB: 0.4433
 #L2     --  PlumeA: 0.0708  PlumeB: 0.0651
 #SSIM   --  PlumeA: 0.3927  PlumeB: 0.4020
 #LPIPS  --  PlumeA: 0.3118  PlumeB: 0.3527

@@ -243,7 +243,7 @@ class TransformsInference(object):
             other = np.repeat(other, 3, axis=other.ndim-1)
 
         # resize
-        if self.outputSize and self.order:
+        if self.outputSize and (self.outputSize != reference.shape[1] or self.outputSize != reference.shape[2]):
             resultRef = np.zeros([reference.shape[0], self.outputSize, self.outputSize, reference.shape[3]])
             resultOther = np.zeros([other.shape[0], self.outputSize, self.outputSize, other.shape[3]])
 
