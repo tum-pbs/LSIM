@@ -91,9 +91,13 @@ If you are using the *LSiM* metric or the data provided here, please use the fol
 @inproceedings{kohl2020_lsim,
  author = {Kohl, Georg and Um, Kiwon and Thuerey, Nils},
  title = {Learning Similarity Metrics for Numerical Simulations},
- booktitle = {Proceedings of the International Conference on Machine Learning},
- pages = {2791--2801},
- year = {2020}
+ booktitle = {Proceedings of the 37th International Conference on Machine Learning},
+ volume = {119},
+ pages = {5349--5360},
+ publisher = {PMLR},
+ year = {2020},
+ month = {7},
+ url = {http://proceedings.mlr.press/v119/kohl20a.html},
 }
 ```
 
