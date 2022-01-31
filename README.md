@@ -1,5 +1,5 @@
-# Learned Simulation Metric (LSiM)
-This repository contains the source code for the paper [Learning Similarity Metrics for Numerical Simulations](https://arxiv.org/abs/2002.07863) by [Georg Kohl](https://ge.in.tum.de/about/georg-kohl/), [Kiwon Um](https://ge.in.tum.de/about/kiwon/) and [Nils Thuerey](https://ge.in.tum.de/about/n-thuerey/), published at [ICML 2020](https://icml.cc/Conferences/2020).
+# Learned Simulation Metric (LSiM) for Scalar 2D Data
+This repository contains the source code for the paper [Learning Similarity Metrics for Numerical Simulations](https://arxiv.org/abs/2002.07863) by [Georg Kohl](https://ge.in.tum.de/about/georg-kohl/), [Kiwon Um](https://ge.in.tum.de/about/kiwon/), and [Nils Thuerey](https://ge.in.tum.de/about/n-thuerey/), published at [ICML 2020](https://icml.cc/Conferences/2020).
 
 *LSiM* is a metric intended as a comparison method for dense 2D data from numerical simulations. It computes a scalar distance value from two inputs that indicate the similarity between them, where a higher value means they are more different. Simple vector space metrics like an L<sup>1</sup> or L<sup>2</sup> distance are suboptimal comparison methods, as they only consider pixel-wise comparisons and cannot capture structures on different scales or contextual information. Even though they represent improvements, the commonly used structural similarity (SSIM) and peak signal-to-noise ratio (PSNR) suffer from similar problems.
 
@@ -10,7 +10,7 @@ Instead, *LSiM* extracts deep feature maps from both inputs and compares them. T
 - **Triangle inequality:** The distance *A*&rarr;*B* is shorter or equal to the distance via a detour (first *A*&rarr;*C*, then *C*&rarr;*B*)
 - **Identity of indiscernibles (relaxed):** If *A* and *B* are identical the resulting distance has to be 0
 
-Further information is available at our [project website](https://ge.in.tum.de/publications/2020-lsim-kohl/).
+Further information is available at our [project website](https://ge.in.tum.de/publications/2020-lsim-kohl/). To compare scalar or vectorial 3D data, you can have a look at our volumetric metric [*VolSiM*](https://github.com/tum-pbs/VOLSIM) that was specifically designed for this data domain.
 
 -----------------------------------------------------------------------------------------------------
 
@@ -34,6 +34,9 @@ from LSIM.distance_model import *
 model = DistanceModel(baseType="lsim", isTrain=False, useGPU=True)
 model.load("Models/LSiM.pth")
 dist = model.computeDistance(arr1, arr2)
+# resulting shapes: input -> output
+# [width, height, channel] -> [1]
+# [batch, width, height, channel] -> [batch]
 ```
 The inputs are automatically normalized and interpolated to the standard network input size of `224x224` by default. Since the model is fully convolutional different input shapes are possible, and we determined that the metric still works well for spatial input dimensions between `128x128 - 512x512`. Outside this range the model performance can drop significantly, and too small inputs can cause issues as the feature extractor needs to reduce the input dimensions.
 The input processing can be modified via the optional parameters `interpolateTo` and `interpolateOrder`, that determine the resulting shape and interpolation order *(0=nearest, 1=linear, 2=cubic)*. Set both to `None` to disable the interpolation.
@@ -58,7 +61,7 @@ The data (3.9 GB .zip file) can be downloaded via any web browser, `ftp`, or `rs
 ```
 wget "https://dataserv.ub.tum.de/s/m1552055/download?files=LSIM_2D_Data.zip" -O LSIM_2D_Data.zip
 ```
-It is recommended to check the archive for corruption, by comparing the SHA512 hash of the downloaded data with the content of the checksums file provided by the data server. If the hashes don't match, restart the download or try a different download method.
+It is recommended to check the archive for corruption, by comparing the SHA512 hash of the downloaded data with the content of the checksums file provided by the data server. If the hashes do not match, restart the download or try a different download method.
 ```
 sha512sum LSIM_2D_Data.zip
 wget "https://dataserv.ub.tum.de/s/m1552055/download?files=checksums.sha512" -O checksums.sha512
