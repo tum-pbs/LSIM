@@ -87,7 +87,7 @@ class DistanceModelNonSiamese(nn.Module):
         inputDict["reference"] = torch.unsqueeze(inputDict["reference"], dim=1)
         inputDict["other"] = torch.unsqueeze(inputDict["other"], dim=1)
 
-        output = self.forward(inputDict)
+        output = self(inputDict)
         output = output.cpu().detach().view(-1).numpy()
 
         return output

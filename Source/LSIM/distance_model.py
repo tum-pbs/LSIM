@@ -109,8 +109,8 @@ class DistanceModel(nn.Module):
 
         self.clampWeights()
 
-        outBase1 = self.basenet.forward(input1)
-        outBase2 = self.basenet.forward(input2)
+        outBase1 = self.basenet(input1)
+        outBase2 = self.basenet(input2)
 
         result = torch.tensor([[0.0]]).cuda() if self.useGPU else torch.tensor([[0.0]])
 
@@ -152,7 +152,7 @@ class DistanceModel(nn.Module):
         inputDict["reference"] = torch.unsqueeze(inputDict["reference"], dim=1)
         inputDict["other"] = torch.unsqueeze(inputDict["other"], dim=1)
 
-        output = self.forward(inputDict)
+        output = self(inputDict)
         output = output.cpu().detach().view(-1).numpy()
 
         return output
@@ -234,8 +234,8 @@ class DistanceModel(nn.Module):
 
         self.clampWeights()
 
-        outBase1 = self.basenet.forward(input1)
-        outBase2 = self.basenet.forward(input2)
+        outBase1 = self.basenet(input1)
+        outBase2 = self.basenet(input2)
 
         for i in range( len(outBase1) ):
             #print(outBase1[i].shape)

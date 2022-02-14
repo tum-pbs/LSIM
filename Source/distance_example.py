@@ -46,8 +46,8 @@ tensRef = util.im2tensor(ref)
 tensPlumeA = util.im2tensor(plumeA)
 tensPlumeB = util.im2tensor(plumeB)
 
-distA_LPIPS = modelLPIPS.forward(tensRef, tensPlumeA)
-distB_LPIPS = modelLPIPS.forward(tensRef, tensPlumeB)
+distA_LPIPS = modelLPIPS(tensRef, tensPlumeA)
+distB_LPIPS = modelLPIPS(tensRef, tensPlumeB)
 
 # print distance results
 print("LSiM   --  PlumeA: %0.4f  PlumeB: %0.4f" % (distA_LSiM, distB_LSiM))

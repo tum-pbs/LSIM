@@ -120,7 +120,7 @@ else:
                             for j in range(cutOffIndex):
                                 temp1 = torch.unsqueeze(ref[i,j], 0)
                                 temp2 = torch.unsqueeze(current[i,j], 0)
-                                dist[m,s*batch+i,j] = metrics[m].forward(temp1, temp2)
+                                dist[m,s*batch+i,j] = metrics[m](temp1, temp2)
 
                     elif type(metrics[m]) is Metric:
                         result = metrics[m](sampleMetrics)
