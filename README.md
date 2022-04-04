@@ -84,7 +84,11 @@ python Source/training.py
 Running the training script without changes should result in a model with a performance close to our final *LSiM* metric (when evaluated with the metric evaluation discussed above). But of course, minor deviations due to the random nature of the model initialization and training procedure may cause performance fluctuations.
 
 ## Backpropagation through the Metric
-Backpropagation, e.g., in the context of training a GAN is straightforward by integrating the `DistanceModel` class that derives from `torch.nn.Module` in a new network. Load the trained model weights from the Models directory with the `load` method in `DistanceModel` on initialization (see Basic Usage above), and freeze all trainable weights of the metric if required. In this case, the `forward` method of the metric should be used instead of `computeDistance` to perform the comparison operation.
+Backpropagation, e.g., in the context of training a GAN is straightforward by integrating the `DistanceModel` class that derives from `torch.nn.Module` in a new network. Load the trained model weights from the Models directory with the `load` method in `DistanceModel` on initialization (see Basic Usage above), and freeze all trainable weights of the metric if required. In this case, the metric model should be called directly instead of using `computeDistance` to perform the comparison operation. An example for this process based on a simple Autoencoder is shown in `backprop_example.py`:
+```
+python Source/backprop_example.py
+```
+
 
 -----------------------------------------------------------------------------------------------------
 
