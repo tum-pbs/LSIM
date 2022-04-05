@@ -3,10 +3,9 @@ import numpy as np
 import imageio
 import torch
 import torch.functional as F
-from torch.utils.data import TensorDataset
+from torch.utils.data import TensorDataset, DataLoader
 
 from LSIM.distance_model import *
-from LSIM.metrics import *
 
 
 ## SETUP
@@ -132,4 +131,5 @@ with torch.no_grad():
         recMax = np.max(rec)
         rec = 255 * ((rec - recMin) / (recMax - recMin))
         imageio.imwrite("Results/%s.png" % names[i], rec.astype(np.uint8))
-        print(rec.shape)
+
+print("Reconstruction visualizations written to Results/")
