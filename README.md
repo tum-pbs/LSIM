@@ -10,7 +10,7 @@ Instead, *LSiM* extracts deep feature maps from both inputs and compares them. T
 - **Triangle inequality:** The distance *A*&rarr;*B* is shorter or equal to the distance via a detour (first *A*&rarr;*C*, then *C*&rarr;*B*)
 - **Identity of indiscernibles (relaxed):** If *A* and *B* are identical the resulting distance has to be 0
 
-Further information is available at our [project website](https://ge.in.tum.de/publications/2020-lsim-kohl/). To compare scalar or vectorial 3D data, you can have a look at our volumetric metric [*VolSiM*](https://github.com/tum-pbs/VOLSIM) that was specifically designed for this data domain.
+Further information is available at our [project website](https://ge.in.tum.de/publications/2020-lsim-kohl/). To compare scalar or vectorial 3D data, you can have a look at our volumetric metric [*VolSiM*](https://github.com/tum-pbs/VOLSIM) that was specifically designed for this data domain. Feel free to contact us if you have questions or suggestions regarding our work or the source code provided here.
 
 -----------------------------------------------------------------------------------------------------
 
@@ -93,20 +93,20 @@ python Source/backprop_example.py
 -----------------------------------------------------------------------------------------------------
 
 ## Citation
-If you are using the *LSiM* metric or the data provided here, please use the following citation.
+If you use the *LSiM* metric or the data provided here, please consider citing our work:
 ```
 @inproceedings{kohl2020_lsim,
- author = {Kohl, Georg and Um, Kiwon and Thuerey, Nils},
- title = {Learning Similarity Metrics for Numerical Simulations},
- booktitle = {Proceedings of the 37th International Conference on Machine Learning},
- volume = {119},
- pages = {5349--5360},
- publisher = {PMLR},
- year = {2020},
- month = {7},
- url = {http://proceedings.mlr.press/v119/kohl20a.html},
+  author = {Kohl, Georg and Um, Kiwon and Thuerey, Nils},
+  title = {Learning Similarity Metrics for Numerical Simulations},
+  booktitle = {Proceedings of the 37th International Conference on Machine Learning},
+  volume = {119},
+  pages = {5349--5360},
+  publisher = {PMLR},
+  year = {2020},
+  month = {7},
+  url = {http://proceedings.mlr.press/v119/kohl20a.html},
 }
 ```
 
 ## Acknowledgements
-This repository also contains the image-based LPIPS metric from the [perceptual similarity](https://github.com/richzhang/PerceptualSimilarity) repository for comparison.
+This work was supported by the ERC Starting Grant *realFlow* (StG-2015-637014). This repository also contains the image-based LPIPS metric from the [perceptual similarity](https://github.com/richzhang/PerceptualSimilarity) repository for comparison.
